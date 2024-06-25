@@ -121,7 +121,7 @@ Variable Scope: Variables are scoped by the cascading nature of CSS.
 }
 ```
 
-4. CSS Animations and Transitions
+# 4. CSS Animations and Transitions
 
 CSS animations and transitions allow for dynamic visual effects.
 
@@ -152,7 +152,7 @@ Transition Properties: Create smooth transitions between states.
 }
 ```
 
-5. CSS Preprocessors (Sass, Less)
+# 5. CSS Preprocessors (Sass, Less)
 
 CSS preprocessors like Sass and Less extend CSS with features that make it more powerful and easier to write.
 
@@ -195,7 +195,7 @@ Partials and Imports: Organize large CSS files into manageable chunks.
     }
 ```
 
-6. Responsive Design Techniques
+# 6. Responsive Design Techniques
 
 Responsive design ensures your website looks good on all devices.
 
@@ -222,7 +222,7 @@ Viewport Units: Use vw and vh for responsive dimensions.
     }
 ```
 
-8. Advanced Selectors
+# 8. Advanced Selectors
 
 Advanced selectors allow for more precise targeting of elements.
 
@@ -245,7 +245,7 @@ Pseudo-elements and Pseudo-classes: Advanced use cases like ::before, ::after, :
     }
 ```
 
-9. CSS Architecture (BEM, OOCSS, SMACSS)
+# 9. CSS Architecture (BEM, OOCSS, SMACSS)
 
 CSS architecture methodologies help maintain large codebases.
 
@@ -284,7 +284,7 @@ SMACSS (Scalable and Modular Architecture for CSS): Organizing styles in a modul
     }
 ```
 
-10. CSS Functions
+# 10. CSS Functions
 
 CSS functions enable dynamic styling capabilities.
 
@@ -308,7 +308,7 @@ Custom Functions in Preprocessors: Create reusable functions in Sass or Less.
     }
 ```
 
-11. Advanced Typography
+# 11. Advanced Typography
 
 Advanced typography techniques improve the aesthetics and readability of text.
 
@@ -331,7 +331,7 @@ Web Font Optimization: Techniques for loading and rendering web fonts efficientl
 <link rel="preload" href="path/to/font.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 ```
 
-12. CSS Performance Optimization
+# 12. CSS Performance Optimization
 
 Optimize CSS for better performance and faster load times.
 
@@ -352,7 +352,7 @@ Async Loading: Load CSS files asynchronously to improve page load performance.
     <link rel="stylesheet" href="styles.css">
 ```
 
-13. CSS Shapes and Clip-path
+# 13. CSS Shapes and Clip-path
 
 Create complex and non-rectangular layouts.
 
@@ -379,7 +379,7 @@ CSS Shapes Module: Wrap content around custom shapes.
     }
 ```
 
-14. CSS Frameworks and Methodologies
+# 14. CSS Frameworks and Methodologies
 
 Utilize CSS frameworks and methodologies to streamline development.
 
@@ -389,7 +389,7 @@ Utilize CSS frameworks and methodologies to streamline development.
 <div class="bg-blue-500 text-white p-4">Tailwind CSS</div>
 ```
 
-15. CSS Logical Properties and Values
+# 15. CSS Logical Properties and Values
 
 CSS logical properties adapt layouts for different writing modes and directions.
 
