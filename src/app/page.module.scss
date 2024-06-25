@@ -1,4 +1,90 @@
+@mixin placholder-mx($bg-color: #eee, $text-color: #222, $border-color: #eee) {
+  background-color: $bg-color;
+  border: 2px solid $border-color;
+  color: $text-color;
+  padding: 1rem;
+  height: 200px;
+  border-radius: 1rem;
+}
+
+
+@mixin desktop {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (max-width: 768px) {
+    @content;
+  }
+}
+
 .main {
-  background-color: #ccc;
   padding: 1rem;
 }
+
+.main>* {
+  margin-bottom: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.grid__areas {
+  display: grid;
+  grid-template-areas: "columnOne columnTwo columnThree";
+  gap: 1rem;
+}
+
+.columnOne {
+  grid-area: columnOne;
+}
+
+.columnTwo {
+  grid-area: columnTwo;
+}
+
+.columnThree {
+  grid-area: columnThree;
+}
+
+.grid__areas__dense {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, minmax(40px, auto));
+  gap: 1rem;
+  grid-auto-flow: row;
+  // grid-auto-flow: dense;
+}
+
+.grid__areas__dense>*:first-child {
+  grid-column: auto/span 2;
+}
+
+.grid__areas__dense>*:nth-child(2) {
+  grid-column: auto/span 2;
+}
+
+.widthSmall {
+  width: 200px;
+}
+
+.placeholders {
+  @include placholder-mx;
+
+  @include desktop {
+    @include placholder-mx($bg-color: #daaca6, $border-color: #daaca6);
+  }
+
+  @include tablet {
+    @include placholder-mx($bg-color: #ccbe90, $border-color: #ccbe90);
+  }
+}
+
+// .columnOne {
+//   @include placholder-mx($bg-color: #000000, $text-color: #ffffff, $border-color: #000000);
+// }

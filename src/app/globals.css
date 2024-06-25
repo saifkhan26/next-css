@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Montserrat";
+  src: url('/fonts/Montserrat/Montserrat-variable.ttf');
+}
+
 :root {}
 
 @media (prefers-color-scheme: dark) {
@@ -11,7 +16,39 @@
 }
 
 html,
-body {}
+body {
+  font-family: Montserrat;
+}
+
+h1 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+h2 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+h3 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+h4 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+h5 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
+
+h6 {
+  font-family: Montserrat;
+  font-weight: 700;
+}
 
 body {}
 
