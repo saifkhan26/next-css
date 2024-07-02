@@ -169,6 +169,168 @@ CSS preprocessors like Sass and Less extend CSS with features that make it more 
   }
 }
 ```
+Many CSS properties start with the same prefix that acts as a kind of namespace. For example, font-family, font-size, and font-weight all start with font-. Sass makes this easier and less redundant by allowing property declarations to be nested. The outer property names are added to the inner, separated by a hyphen.
+
+```
+.enlarge {
+  font-size: 14px;
+  transition: {
+    property: font-size;
+    duration: 4s;
+    delay: 2s;
+  }
+
+  &:hover { font-size: 36px; }
+}
+```
+
+```
+.info-page {
+  margin: auto {
+    bottom: 10px;
+    top: 2px;
+  }
+}
+```
+
+Parent Selector
+
+```
+.alert {
+  // The parent selector can be used to add pseudo-classes to the outer
+  // selector.
+  &:hover {
+    font-weight: bold;
+  }
+
+  // It can also be used to style the outer selector in a certain context, such
+  // as a body set to use a right-to-left language.
+  [dir=rtl] & {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+
+  // You can even use it as an argument to pseudo-class selectors.
+  :not(&) {
+    opacity: 0.8;
+  }
+}
+```
+
+suffix
+```
+.accordion {
+  background: #f4f4f4;
+
+  &__copy {
+    padding: 1rem 1.5rem 2rem 1.5rem;
+
+    &--open {
+      display: block;
+    }
+  }
+}
+```
+would compile to something like this
+```
+.accordion {
+  background: #f4f4f4;
+}
+.accordion__copy {
+  padding: 1rem 1.5rem 2rem 1.5rem;
+}
+.accordion__copy--open {
+  display: block;
+}
+```
+Sass Variables
+```
+$global-variable: global value;
+
+.content {
+  $local-variable: local value;
+  global: $global-variable;
+  local: $local-variable;
+}
+
+.sidebar {
+  global: $global-variable;
+
+  // This would fail, because $local-variable isn't in scope:
+  // local: $local-variable;
+}
+```
+```
+$variable: global value;
+
+.content {
+  $variable: local value;
+  value: $variable;
+}
+
+.sidebar {
+  value: $variable;
+}
+```
+@if and @else
+```
+@use "sass:math";
+
+@mixin avatar($size, $circle: false) {
+  width: $size;
+  height: $size;
+
+ @if $circle {
+border-radius:50%;
+  } @else {
+border-radius:1rem;
+  }
+}
+
+.square-av {
+  @include avatar(100px, $circle: false);
+}
+.circle-av {
+  @include avatar(100px, $circle: true);
+}
+```
+@each
+```
+$sizes: 40px, 50px, 80px;
+
+@each $size in $sizes {
+  .icon-#{$size} {
+    font-size: $size;
+    height: $size;
+    width: $size;
+  }
+}
+```
+```
+$icons: ("eye": "\f112", "start": "\f12e", "stop": "\f12f");
+
+@each $name, $glyph in $icons {
+  .icon-#{$name}:before {
+    display: inline-block;
+    font-family: "Icon Font";
+    content: $glyph;
+  }
+}
+
+```
+@for
+```
+$base-color: #036;
+
+@for $i from 1 through 3 {
+  ul:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+  }
+}
+
+
+```
+
 
 Mixins and Functions: Reuse code and create dynamic styles.
 
@@ -179,6 +341,62 @@ Mixins and Functions: Reuse code and create dynamic styles.
 }
 .box {
   @include border-radius(10px);
+}
+```
+```
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin horizontal-list {
+  @include reset-list;
+
+  li {
+    display: inline-block;
+    margin: {
+      left: -2px;
+      right: 2em;
+    }
+  }
+}
+
+nav ul {
+  @include horizontal-list;
+}
+```
+OR
+```
+=reset-list
+  margin: 0
+  padding: 0
+  list-style: none
+
+=horizontal-list
+  +reset-list
+
+  li
+    display: inline-block
+    margin:
+      left: -2px
+      right: 2em
+
+nav ul
+  +horizontal-list
+```
+```
+@mixin square($size, $radius: 0) {
+  width: $size;
+  height: $size;
+
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+}
+
+.avatar {
+  @include square(100px, $radius: 4px);
 }
 ```
 
@@ -409,4 +627,70 @@ Logical Properties: Use logical properties for margin, padding, and borders.
       margin-inline-start: 10px;
       padding-block-start: 20px;
     }
+```
+
+# 16. CSS Scroll Snap
+Creating Snapping Scroll Effects
+
+Implement scroll snapping for better user experiences on scrollable containers.
+
+```
+.scroll-container {
+  scroll-snap-type: x mandatory;
+  overflow-x: scroll;
+}
+
+.scroll-item {
+  scroll-snap-align: center;
+}
+```
+
+# 17. CSS Filter Effects
+Applying Filters to Elements
+
+Use CSS filters to apply visual effects like blur, brightness, and contrast.
+
+```
+.filtered {
+  filter: blur(5px) brightness(0.8) contrast(120%);
+}
+```
+
+# 18. CSS Text Overflow
+Handling Text Overflow
+
+Manage overflowed text with ellipsis, clipping, or custom handling.
+
+```
+.text-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
+
+# 19. CSS Grid Masonry Layout
+Creating Masonry Layouts
+
+Implement Pinterest-like masonry layouts using CSS Grid.
+
+```
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: masonry;
+}
+```
+
+# 20. CSS Grid Alignment and Justification
+Aligning Grid Items
+
+Utilize grid alignment properties to precisely position items within a grid.
+
+```
+.grid-container {
+  display: grid;
+  align-items: stretch; /* Align items vertically */
+  justify-items: start; /* Align items horizontally */
+}
 ```
