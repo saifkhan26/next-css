@@ -1,0 +1,21 @@
+.paralaxContainer {
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	isolation: isolate;
+	z-index: 0;
+}
+
+.scrollElement {
+	position: absolute;
+	/* background-image: linear-gradient(to right, #2f4a50, #2f4a50); */
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	transition: transform 0s linear;
+	z-index: 0;
+}
