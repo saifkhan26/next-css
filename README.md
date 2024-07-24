@@ -1,3 +1,16 @@
+;; Caps to escape/control configuration for Kanata
+
+(defsrc
+  caps
+)
+
+(defalias
+  escctrl (tap-hold 100 100 esc lctl)
+)
+
+(deflayer base
+  @escctrl
+)
 # 1. CSS Grid Layout
 
 CSS Grid Layout is a two-dimensional layout system for the web. It allows developers to create complex and responsive layouts more easily.
